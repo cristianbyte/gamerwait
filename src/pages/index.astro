@@ -1,9 +1,8 @@
-<!--
-  Archivo de ejemplo: Coming Soon ligero para GamerWait
-  - Copia este archivo como `src/pages/index.astro` o `public/index.html` en tu proyecto Astro.
-  - Usa `index.astro` si quieres aprovechar rutas de Astro (el HTML puro funciona también).
-  - Estilo: fondo negro, verde neón, texto grande centrado y animación de radar girando.
---><!doctype html>
+---
+import Analytics from "@vercel/analytics/astro";
+---
+
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -282,5 +281,6 @@
         </div>
       </aside>
     </main>
+    <Analytics />
   </body>
 </html>
