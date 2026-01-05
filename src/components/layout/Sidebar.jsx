@@ -9,7 +9,7 @@ export default function Sidebar() {
         <h1 className="text-xl font-semibold tracking-wide text-emerald-300">
           GAMERWAIT
         </h1>
-        <p className="text-xs text-slate-400 mt-1">Release Tracker v2.1</p>
+        <p className="text-xs text-slate-400 mt-1">Release Tracker v0.1</p>
       </div>
 
       <div className="h-px bg-white/5" />

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <!-- Time Icon-->
+    <symbol id="time" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" stroke="currentColor" fill="none" stroke-width="2" />
+        <path d="M12 7v5l3.5 0" stroke="currentColor" fill="none" stroke-width="2"
+            stroke-linecap="round" />
+    </symbol>
+</svg>
