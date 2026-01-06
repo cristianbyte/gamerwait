@@ -11,21 +11,24 @@ export default function TrackedGameList() {
         title="Cyberpunk Nexus 2077"
         progress="42%"
         followers="30.2k"
-        time="89d 14h"
+        remaining="89d 14h 45m"
+        relase_date="19/11/2026"
       />
 
       <TrackedGameCard
         title="Stellar Warfare: Infinity"
         progress="25%"
         followers="8.5k"
-        time="186d 8h"
+        remaining="186d 8h 15m"
+        relase_date="02/02/2027"
       />
 
       <TrackedGameCard
         title="Legends of Eldoria"
         progress="35%"
         followers="6.2k"
-        time="133d 19h"
+        remaining="133d 19h 30m"
+        relase_date="15/01/2027"
       />
     </section>
   );
