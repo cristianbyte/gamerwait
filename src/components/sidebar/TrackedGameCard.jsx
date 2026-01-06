@@ -1,6 +1,6 @@
 import Icon from "../ui/Icon.jsx";
 
-export default function TrackedGameCard({ title, progress, time }) {
+export default function TrackedGameCard({ title, progress, time, followers }) {
   const progressValue =
     typeof progress === "string" ? progress : `${progress}%`;
 
@@ -15,15 +15,23 @@ export default function TrackedGameCard({ title, progress, time }) {
             {time}
           </span>
         </span>
-        <span>{progressValue}</span>
       </div>
 
       {/* Progress bar */}
-      <div className="mt-2 h-1 rounded-full bg-white/10 overflow-hidden">
+      <div className="mt-2 h-2 rounded-full bg-white/10 overflow-hidden">
         <div
           className="h-full progress-gradient transition-all duration-300"
           style={{ width: progressValue }}
         />
+      </div>
+      <div className="flex justify-between mt-1">
+        <span className=" text-xs font-medium text-text mt-1 block">
+          {progressValue} elapsed
+        </span>
+        <span className=" flex text-xs font-medium gap-2 mt-1">
+          <Icon name="trendingUp" className="w-4 h-4 text-accent" />
+          {followers}
+        </span>
       </div>
     </div>
   );
