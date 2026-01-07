@@ -8,7 +8,7 @@ export default function TrackedGameList() {
       </p>
 
       <TrackedGameCard
-        title="Cyberpunk Nexus 2077"
+        title="GTA IV"
         progress="42%"
         followers="30.2k"
         remaining="89d 14h 45m"

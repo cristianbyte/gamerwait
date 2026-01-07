@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Icon from "../ui/Icon.jsx";
 
 export default function TrackedGameCard({
@@ -11,14 +12,39 @@ export default function TrackedGameCard({
   const progressValue =
     typeof progress === "string" ? progress : `${progress}%`;
 
+  const [favorite, setFavorite] = useState(["GTA IV", "Cyberpunk 2077"]);
+
+  const toggleFavorite = () => {
+    if (favorite.includes(title)) {
+      setFavorite(favorite.filter((item) => item !== title));
+    } else {
+      setFavorite([...favorite, title]);
+    }
+  };
+
   return (
     <div className="bg-transparent w-full rounded-lg p-3 border border-white/5 hover:border-neon/40 transition-all-duration-100">
       <div className="w-full flex justify-between items-center mb-10">
         <p className="text-sm font-medium text-text leading-tight">{title}</p>
-        <Icon
-          name="star"
-          className="w-4 h-4 p-1 scale-200 text-accent cursor-pointer"
-        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          className="cursor-pointer"
+          onClick={toggleFavorite}
+          viewBox="0 0 24 24"
+        >
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="m12 17.75-6.172 3.245 1.179-6.873-5-4.867 6.9-1 3.086-6.253 3.086 6.253 6.9 1-5 4.867 1.179 6.873z"
+            fill={favorite.includes(title) ? "currentColor" : "none"}
+          />
+        </svg>
       </div>
 
       <div className="flex justify-between items-center">
