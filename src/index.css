@@ -7,6 +7,11 @@
   --color-accent: #7c4dff;
   --color-text: #e6e8f0;
   --color-slate: #94a3b8;
+
+  /* 🔤 Fonts */
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-title: "Space Grotesk", sans-serif;
+  --font-gamer: "Orbitron", sans-serif;
 }
 
 * {

@@ -6,6 +6,7 @@ export default function Home() {
     <AppLayout>
       <Sidebar />
       <main className="bg-yucatan flex-1"></main>
+      {/* GamerWit is an independent app and is not affiliated with or endorsed by any game publisher or studio. All game titles are trademarks of their respective owners. */}
     </AppLayout>
   );
 }
