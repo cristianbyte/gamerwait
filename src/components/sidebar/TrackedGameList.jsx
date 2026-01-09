@@ -2,7 +2,7 @@ import TrackedGameCard from "./TrackedGameCard";
 
 export default function TrackedGameList() {
   return (
-    <section className="flex flex-col gap-3">
+    <section className="flex flex-col h-full gap-3 relative pl-4 pt-4  pb-4 pr-2 overflow-y-scroll">
       <p className="text-xs text-white uppercase tracking-widest text-muted">
         Tracking
       </p>

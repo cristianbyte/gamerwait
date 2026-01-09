@@ -6,6 +6,12 @@
   --color-neon: #1de9b6;
   --color-accent: #7c4dff;
   --color-text: #e6e8f0;
+  --color-slate: #94a3b8;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
 @layer utilities {

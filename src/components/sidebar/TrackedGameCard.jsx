@@ -23,7 +23,7 @@ export default function TrackedGameCard({
   };
 
   return (
-    <div className="bg-transparent w-full rounded-lg p-3 border border-white/5 hover:border-neon/40 transition-all-duration-100">
+    <div className=" cursor-pointer bg-transparent w-full rounded-lg p-3 border border-white/5 hover:border-neon/40 transition-all-duration-100">
       <div className="w-full flex justify-between items-center mb-10">
         <p className="text-sm font-medium text-text leading-tight">{title}</p>
         <svg
@@ -35,6 +35,8 @@ export default function TrackedGameCard({
           onClick={toggleFavorite}
           viewBox="0 0 24 24"
         >
+          {" "}
+          m
           <path fill="none" d="M0 0h24v24H0z" />
           <path
             stroke="currentColor"
