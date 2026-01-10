@@ -8,27 +8,37 @@ export default function TrackedGameList() {
       </p>
 
       <TrackedGameCard
-        title="GTA IV"
-        progress="42%"
+        title="GTA VI"
         followers="30.2k"
-        remaining="89d 14h 45m"
-        relase_date="19/11/2026"
+        relase_date="2026-11-19T00:00:00Z"
+        platforms={[
+          { id: "ps", status: "confirmed" },
+          { id: "xbox", status: "confirmed" },
+          { id: "pc", status: "rumored" },
+        ]}
       />
 
       <TrackedGameCard
         title="Stellar Warfare: Infinity"
-        progress="25%"
         followers="8.5k"
-        remaining="186d 8h 15m"
-        relase_date="02/02/2027"
+        relase_date="2026-11-19T00:00:00Z"
+        platforms={[
+          { id: "ps", status: "confirmed" },
+          { id: "xbox", status: "confirmed" },
+          { id: "nintendo", status: "confirmed" },
+          { id: "pc", status: "confirmed" },
+        ]}
       />
 
       <TrackedGameCard
         title="Legends of Eldoria"
-        progress="35%"
         followers="6.2k"
-        remaining="133d 19h 30m"
-        relase_date="15/01/2027"
+        relase_date="2026-11-19T00:00:00Z"
+        platforms={[
+          { id: "ps", status: "confirmed" },
+          { id: "xbox", status: "confirmed" },
+          { id: "pc", status: "confirmed" },
+        ]}
       />
     </section>
   );
