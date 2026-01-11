@@ -51,13 +51,42 @@
 
     <!-- PC Icon-->
 
-    <symbol id="brand-pc" width="12"
-        height="12"
-        fill="#000" viewBox="0 0 24 24">
+    <symbol id="brand-pc" width="12" height="12" fill="#000" viewBox="0 0 24 24">
         <path stroke-width="1.5" fill="currentColor"
             d="M12 1.5A1.5 1.5 0 0 1 13.5 0h9A1.5 1.5 0 0 1 24 1.5v21a1.5 1.5 0 0 1-1.5 1.5h-9a1.5 1.5 0 0 1-1.5-1.5zm1.5 20.25a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0m3 0a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0M14.25 1.5a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5zm-.75 3.75a.75.75 0 0 0 .75.75h7.5a.75.75 0 0 0 0-1.5h-7.5a.75.75 0 0 0-.75.75M2.25 3A2.25 2.25 0 0 0 0 5.25v10.5A2.25 2.25 0 0 0 2.25 18H9v3h-.75a.75.75 0 0 0 0 1.5h2.25v-6H2.25a.75.75 0 0 1-.75-.75V5.25a.75.75 0 0 1 .75-.75h8.25V3z" />
     </symbol>
 
+    <!-- Follow Icon -->
+    <symbol id="follow"
+        width="16"
+        height="16"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+    >
+        <path fill="none" stroke="none" d="M0 0h24v24H0z" />
+        <path
+            d="M5 7a4 4 0 1 0 8 0 4 4 0 1 0-8 0M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2m1-17.87a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.85" />
+    </symbol>
+
+    <!-- Pin Icon -->
+    <symbol id="pin"
+        fill="none"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    >
+        <path d="M12 17v5" />
+        <path
+            d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z" />
+    </symbol>
 
     <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
         fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star">

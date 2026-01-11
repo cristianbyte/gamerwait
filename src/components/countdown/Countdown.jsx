@@ -36,7 +36,7 @@ function pad(value) {
   return String(value).padStart(2, "0");
 }
 
-export default function Countdown({ releaseDate }) {
+export default function Countdown({ releaseDate, className }) {
   const timeLeft = useCountdown(releaseDate);
 
   if (!timeLeft) {
@@ -46,11 +46,11 @@ export default function Countdown({ releaseDate }) {
   const { days, hours, minutes, seconds } = timeLeft;
 
   return (
-    <div>
-      <span>{pad(days)} : </span>
-      <span>{pad(hours)} : </span>
-      <span>{pad(minutes)} : </span>
-      <span>{pad(seconds)}</span>
+    <div className={className}>
+      <span>{pad(days)}d : </span>
+      <span>{pad(hours)}h : </span>
+      <span>{pad(minutes)}m : </span>
+      <span>{pad(seconds)}s</span>
     </div>
   );
 }
