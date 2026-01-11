@@ -45,7 +45,7 @@ export default function TrackedGameCard({
       {/* Header with title and pin */}
       <div className="flex justify-between items-start mb-2">
         <div className="flex-1">
-          <h3 className="text-xl font-sans text-neon font-bold leading-tight">
+          <h3 className="text-xl font-title text-neon font-bold leading-tight">
             {title}
           </h3>
           <p className="text-xs text-slate mt-1">{subtitle}</p>
@@ -77,34 +77,37 @@ export default function TrackedGameCard({
         </button>
       </div>
 
-      {/* Tracking type badge */}
-      <div className="mb-2">
-        <span
-          className={`inline-block px-3 py-1 rounded-md text-xs font-semibold border ${getTrackingColor()}`}
-        >
-          {getTrackingLabel()}
-        </span>
-      </div>
-
       {/* Followers */}
       <div className="flex items-center gap-2 mb-2">
         <Icon name="follow" className="w-4 h-4 text-slate" />
-        <span className="text-xs font-sans text-slate">
+        <span className="text-xs font-title text-slate">
           {parseInt(followers).toLocaleString()}
         </span>
       </div>
 
       {/* Countdown */}
-      <div className="pt-1 border-t border-white/10">
-        <Countdown
-          releaseDate={tracking.startAt}
-          className="text-sm font-title text-slate"
-        />
-        {tracking.endAt && (
-          <p className="text-xs text-muted mt-1">
-            Ends: {tracking.endAt.toISOString().split("T")[0]}
-          </p>
-        )}
+      <div className="pt-1 flex justify-between items-center border-t border-white/10">
+        {/* Tracking type badge */}
+        <div className="mb-0">
+          <span
+            className={`inline-block w-max px-1 py-1 rounded-md text-xs font-semibold border ${getTrackingColor()}`}
+          >
+            {getTrackingLabel()}
+          </span>
+        </div>
+
+        <div className="flex-col columns-1 w-full text-right">
+          <Countdown
+            releaseDate={tracking.startAt}
+            className="text-xs font-title text-slate"
+          />
+          {tracking.endAt && (
+            <Countdown
+              className={"text-xs font-title text-slate"}
+              releaseDate={tracking.endAt}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -82,7 +82,9 @@ export default function Sidebar() {
       >
         {/* Header */}
         <div className="p-4 pt-16 md:pt-4">
-          <h1 className="text-xl font-title text-emerald-300">GAMERWAIT</h1>
+          <h1 className="text-3xl font-title font-bold text-emerald-300">
+            GAMERWAIT
+          </h1>
           <p className="text-xs text-slate-400">Release Tracker v0.1</p>
         </div>
 

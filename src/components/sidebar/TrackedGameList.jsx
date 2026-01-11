@@ -32,7 +32,7 @@ export default function TrackedGameList() {
         tracking={{
           type: TrackingType.SEASON,
           startAt: new Date("2026-01-08T00:00:00Z"),
-          endAt: new Date("2027-02-19T00:00:00Z"),
+          endAt: new Date("2026-02-19T00:00:00Z"),
         }}
       />
 
@@ -43,7 +43,7 @@ export default function TrackedGameList() {
         tracking={{
           type: TrackingType.RANKED_ACT,
           startAt: new Date("2026-01-08T00:00:00Z"),
-          endAt: new Date("2027-02-19T00:00:00Z"),
+          endAt: new Date("2026-03-19T08:00:00Z"),
         }}
       />
     </section>
