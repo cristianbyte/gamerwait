@@ -73,17 +73,15 @@ export default function TrackedGameList() {
   }, [searchQuery, selectedFilter]);
 
   return (
-    <section className="flex flex-col h-full relative">
+    <section className="flex flex-col max-h-screen overflow-hidden relative">
       {/* Header with title and search */}
-      <div className="px-4 pt-4 pb-3 border-b border-white/5">
-        <p className="text-xs text-muted uppercase tracking-widest mb-3">
-          Tracking
-        </p>
+      <div className="px-4 pt-4 pb-3 border-b shrink-0 border-white/5">
+        <p className="text-xs  uppercase tracking-widest mb-3">Tracking</p>
 
         {/* Search input */}
         <div className="relative">
           <svg
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 "
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -106,8 +104,8 @@ export default function TrackedGameList() {
       </div>
 
       {/* Scrollable game list */}
-      <div className="flex-1 overflow-y-auto px-4 pt-3 pb-4">
-        <div className="flex flex-col gap-3">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden min-h-0 px-4 pt-3 pb-4">
+        <div className="flex flex-col gap-3 ">
           {filteredGames.length > 0 ? (
             filteredGames.map((game) => (
               <TrackedGameCard
@@ -120,14 +118,16 @@ export default function TrackedGameList() {
             ))
           ) : (
             <div className="text-center py-8">
-              <p className="text-muted text-sm">No games found</p>
+              <p className="text-slate text-sm">
+                Nothing spawned here. Try again.
+              </p>
             </div>
           )}
         </div>
       </div>
 
       {/* Filter buttons at bottom */}
-      <div className="px-4 pb-4 pt-3 border-t border-white/5">
+      <div className="px-4 shrink-0 pb-4 pt-3 flex-end border-t border-white/5">
         <div className="flex flex-wrap gap-2">
           {FILTER_OPTIONS.map((option) => (
             <button
@@ -136,7 +136,7 @@ export default function TrackedGameList() {
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                 selectedFilter === option.value
                   ? "bg-neon text-black"
-                  : "bg-white/5 text-muted hover:bg-white/10 hover:text-white"
+                  : "bg-white/5 text-slate hover:bg-white/10 hover:text-white"
               }`}
             >
               {option.label}
