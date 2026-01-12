@@ -1,13 +1,7 @@
 import { useState, useMemo } from "react";
+import { TrackingType } from "../types/TrakingType";
 import TrackedGameCard from "./TrackedGameCard";
-
-export const TrackingType = Object.freeze({
-  RELEASE: "release",
-  SEASON: "season",
-  RANKED_ACT: "ranked_act",
-  EVENT: "event",
-  EXPANSION: "expansion",
-});
+import SearchInput from "../ui/SearchInput";
 
 const GAMES_DATA = [
   {
@@ -73,34 +67,16 @@ export default function TrackedGameList() {
   }, [searchQuery, selectedFilter]);
 
   return (
-    <section className="flex flex-col max-h-screen overflow-hidden relative">
+    <section className="flex flex-col h-full overflow-hidden relative">
       {/* Header with title and search */}
       <div className="px-4 pt-4 pb-3 border-b shrink-0 border-white/5">
         <p className="text-xs  uppercase tracking-widest mb-3">Tracking</p>
 
         {/* Search input */}
-        <div className="relative">
-          <svg
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 "
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
-          <input
-            type="text"
-            placeholder="Search games..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-sm text-white placeholder-muted focus:outline-none focus:border-neon/40 transition-colors"
-          />
-        </div>
+        <SearchInput
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
       </div>
 
       {/* Scrollable game list */}
@@ -127,13 +103,13 @@ export default function TrackedGameList() {
       </div>
 
       {/* Filter buttons at bottom */}
-      <div className="px-4 shrink-0 pb-4 pt-3 flex-end border-t border-white/5">
+      <div className="px-4 shrink-0 pb-4 pt-3 border-t border-white/5">
         <div className="flex flex-wrap gap-2">
           {FILTER_OPTIONS.map((option) => (
             <button
               key={option.value}
               onClick={() => setSelectedFilter(option.value)}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+              className={`px-3 py-1.5 rounded-full  text-xs font-medium transition-all ${
                 selectedFilter === option.value
                   ? "bg-neon text-black"
                   : "bg-white/5 text-slate hover:bg-white/10 hover:text-white"

@@ -1,5 +1,11 @@
+import Header from "../hero/Header";
+
 function MainContent() {
-  return <></>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default MainContent;

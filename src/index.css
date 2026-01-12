@@ -18,6 +18,10 @@
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
+.line-0 {
+  height: 5px !important;
+}
+
 @layer utilities {
   .progress-gradient {
     background: linear-gradient(90deg, #1de9b6 0%, #7c4dff 50%, #1de9b6 100%);

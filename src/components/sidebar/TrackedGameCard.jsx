@@ -62,9 +62,9 @@ export default function TrackedGameCard({
             viewBox="0 0 24 24"
             fill={pinned ? "currentColor" : "none"}
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className={`w-5 h-5 cursor-pointer ${
               pinned ? "text-neon" : "text-slate"
             }`}
@@ -96,10 +96,10 @@ export default function TrackedGameCard({
           </span>
         </div>
 
-        <div className="flex-col columns-1 w-full text-right">
+        <div className="flex-col w-full text-right">
           <Countdown
             releaseDate={tracking.startAt}
-            className="text-xs font-title text-slate"
+            className="text-xs text-slate"
           />
           {tracking.endAt && (
             <Countdown

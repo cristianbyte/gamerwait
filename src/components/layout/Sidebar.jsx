@@ -44,7 +44,7 @@ export default function Sidebar() {
       <button
         onClick={() => setOpen(!open)}
         className="
-          fixed top-4 left-4 z-50
+          fixed top-5 left-4 z-50
           bg-slate-800 text-white
           px-3 py-2 rounded h-10 w-10
           md:hidden
@@ -69,27 +69,31 @@ export default function Sidebar() {
       {/* SIDEBAR */}
       <aside
         className={`
-          fixed md:static top-0 left-0 z-40
-          h-dvh bg-slate-900 text-slate-200
-          border-r border-white/5
-          flex flex-col
-          transition-transform duration-300
-          w-72
+    fixed md:static h-screen top-0 left-0 z-40
+    bg-slate-900 text-slate-200
+    border-r border-white/5
+    flex flex-col
+    transition-transform duration-300
+    w-100
 
-          ${open ? "translate-x-0" : "-translate-x-full"}
-          md:translate-x-0
-        `}
+    ${open ? "translate-x-0" : "-translate-x-full"}
+    md:translate-x-0
+  `}
       >
-        {/* Header */}
-        <div className="p-4 pt-16 md:pt-4">
+        <div className="shrink-0 p-4 pt-16 md:pt-4">
           <h1 className="text-3xl font-title font-bold text-emerald-300">
             GAMERWAIT
           </h1>
           <p className="text-xs text-slate-400">Release Tracker v0.1</p>
         </div>
 
-        <TrackedGameList />
-        <GlobalWaiters />
+        <div className="flex-1 min-h-0">
+          <TrackedGameList />
+        </div>
+
+        <div className="shrink-0">
+          <GlobalWaiters />
+        </div>
       </aside>
     </>
   );

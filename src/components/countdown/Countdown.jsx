@@ -40,7 +40,7 @@ export default function Countdown({ releaseDate, className }) {
   const timeLeft = useCountdown(releaseDate);
 
   if (!timeLeft) {
-    return <span className={`text-neon text-xs font-bold`}>LIVE</span>;
+    return <span className={`text-neon text-xs font-bold line-0`}>LIVE</span>;
   }
 
   const { days, hours, minutes, seconds } = timeLeft;
