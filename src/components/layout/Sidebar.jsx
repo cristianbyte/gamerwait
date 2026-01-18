@@ -74,7 +74,7 @@ export default function Sidebar() {
     border-r border-white/5
     flex flex-col
     transition-transform duration-300
-    w-100
+    w-80
 
     ${open ? "translate-x-0" : "-translate-x-full"}
     md:translate-x-0
