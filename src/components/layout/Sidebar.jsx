@@ -81,7 +81,7 @@ export default function Sidebar() {
   `}
       >
         <div className="shrink-0 p-4 pt-16 md:pt-4">
-          <h1 className="text-3xl font-title font-bold text-emerald-300">
+          <h1 className="text-3xl font-count font-extrabold text-emerald-300">
             GAMERWAIT
           </h1>
           <p className="text-xs text-slate-400">Release Tracker v0.1</p>

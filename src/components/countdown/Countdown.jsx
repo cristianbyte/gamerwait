@@ -36,21 +36,30 @@ function pad(value) {
   return String(value).padStart(2, "0");
 }
 
-export default function Countdown({ releaseDate, className }) {
+export default function Countdown({ releaseDate, className, complete }) {
   const timeLeft = useCountdown(releaseDate);
 
   if (!timeLeft) {
-    return <span className={`text-neon text-xs font-bold line-0`}>LIVE</span>;
+    return (
+      <span className="relative flex size-2">
+        <span className="absolute inline-flex size-full rounded-full bg-neon opacity-75 animate-ping" />
+        <span className="relative inline-flex size-2 rounded-full bg-neon" />
+      </span>
+    );
   }
 
   const { days, hours, minutes, seconds } = timeLeft;
 
   return (
     <div className={className}>
-      <span>{pad(days)}d : </span>
-      <span>{pad(hours)}h : </span>
-      <span>{pad(minutes)}m : </span>
-      <span>{pad(seconds)}s</span>
+      <span>{pad(days)} d : </span>
+      <span>{pad(hours)} h </span>
+      {complete && (
+        <>
+          <span>: {pad(minutes)} m : </span>
+          <span>{pad(seconds)} s</span>
+        </>
+      )}
     </div>
   );
 }

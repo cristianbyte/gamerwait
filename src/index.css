@@ -11,6 +11,7 @@
   /* 🔤 Fonts */
   --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-title: "Space Grotesk", sans-serif;
+  --font-count: "Tektur", sans-serif;
 }
 
 * {

@@ -1,5 +1,9 @@
 import { useState } from "react";
-import Countdown from "../countdown/Countdown.jsx";
+import {
+  getTimeLeftLabel,
+  formatReleaseDateOrLive,
+  formatDate,
+} from "../countdown/TimeLeft.jsx";
 import Icon from "../ui/Icon.jsx";
 
 export default function TrackedGameCard({
@@ -41,11 +45,11 @@ export default function TrackedGameCard({
   };
 
   return (
-    <div className="cursor-pointer bg-transparent w-full rounded-lg p-4 border border-white/5 hover:border-neon/40 transition-all duration-300">
+    <div className="cursor-pointer bg-transparent w-full rounded-lg p-4 border border-white/5 hover:border-neon/80 transition-all duration-100">
       {/* Header with title and pin */}
       <div className="flex justify-between items-start mb-2">
         <div className="flex-1">
-          <h3 className="text-xl font-title text-neon font-bold leading-tight">
+          <h3 className="text-xl font-count text-neon font-extrabold leading-tight">
             {title}
           </h3>
           <p className="text-xs text-slate mt-1">{subtitle}</p>
@@ -55,60 +59,34 @@ export default function TrackedGameCard({
           className="ml-2 p-1 hover:bg-white/10 rounded transition-colors"
           aria-label="Pin"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill={pinned ? "currentColor" : "none"}
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className={`w-5 h-5 cursor-pointer ${
-              pinned ? "text-neon" : "text-slate"
-            }`}
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M15 4.5l-4 4l-4 1.5l-1.5 1.5l7 7l1.5 -1.5l1.5 -4l4 -4" />
-            <path d="M9 15l-4.5 4.5" />
-            <path d="M14.5 4l5.5 5.5" />
-          </svg>
-        </button>
-      </div>
-
-      {/* Followers */}
-      <div className="flex items-center gap-2 mb-2">
-        <Icon name="follow" className="w-4 h-4 text-slate" />
-        <span className="text-xs font-title text-slate">
-          {parseInt(followers).toLocaleString()}
-        </span>
-      </div>
-
-      {/* Countdown */}
-      <div className="pt-1 flex justify-between items-center border-t border-white/10">
-        {/* Tracking type badge */}
-        <div className="mb-0">
           <span
             className={`inline-block w-max px-1 py-1 rounded-md text-xs font-semibold border ${getTrackingColor()}`}
           >
             {getTrackingLabel()}
           </span>
-        </div>
+        </button>
+      </div>
 
-        <div className="flex-col w-full text-right">
-          <Countdown
-            releaseDate={tracking.startAt}
-            className="text-xs text-slate"
-          />
-          {tracking.endAt && (
-            <Countdown
-              className={"text-xs font-title text-slate"}
-              releaseDate={tracking.endAt}
-            />
-          )}
+      {/* Followers */}
+      <div className="flex items-center gap-2">
+        <Icon name="follow" className="w-4 h-4 text-slate" />
+        <span className="text-xs font-count text-slate">
+          {parseInt(followers).toLocaleString()}
+        </span>
+        <div className="text-xs text-slate ml-auto">
+          {formatReleaseDateOrLive(tracking.startAt)}
         </div>
       </div>
+
+      {tracking.type !== "release" && (
+        <div className="pt-1 mt-2 flex items-center text-xs text-slate border-t border-white/10">
+          <span>{tracking.startAt && formatDate(tracking.startAt)}</span>
+
+          {tracking.endAt && (
+            <span className="ml-auto">{getTimeLeftLabel(tracking.endAt)}</span>
+          )}
+        </div>
+      )}
     </div>
   );
 }

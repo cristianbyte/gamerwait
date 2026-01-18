@@ -19,11 +19,11 @@ export default function UserMenu() {
     <div className="relative" ref={menuRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="size-10 bg-linear-to-br from-cyan-400 to-purple-500 rounded-full p-0.5 hover:scale-105 transition-transform"
+        className="size-10 bg-accent  rounded-full p-0.5 hover:scale-105 transition-transform"
       >
         <div className="size-full bg-slate-800 rounded-full flex items-center justify-center">
           <svg
-            className="w-5 h-5 text-white"
+            className="w-5 h-5 text-slate"
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -86,7 +86,7 @@ export default function UserMenu() {
           </div>
 
           <div className="border-t border-white/10 py-2">
-            <button className="w-full px-4 py-2 text-sm text-left text-red-400 hover:bg-red-500/10 transition-colors flex items-center gap-3">
+            <button className="w-full px-4 py-2 text-sm text-left text-neon hover:bg-red-500/10 transition-colors flex items-center gap-3">
               <svg
                 className="w-5 h-5"
                 fill="none"
