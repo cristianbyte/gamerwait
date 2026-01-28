@@ -14,9 +14,9 @@ export default function MainContent({
   },
 }) {
   return (
-    <div className="flex-1 overflow-y-scroll h-screen">
+    <div className="flex flex-col overflow-y-scroll h-screen">
       <Header />
-      <div className="max-w-6xl mx-auto px-4 md:px-10 py-12">
+      <div className="flex-1 flex-col flex justify-center items-center max-h-full mx-auto px-4 md:px-10 py-12">
         {/* Event Header */}
         <div className="text-center mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded-full mb-6">
@@ -81,9 +81,6 @@ export default function MainContent({
             }
           />
         </div>
-
-        {/* Heatmap */}
-        <HeatmapSection />
       </div>
     </div>
   );
