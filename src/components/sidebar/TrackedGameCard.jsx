@@ -5,14 +5,18 @@ import {
   formatDate,
 } from "../countdown/TimeLeft.jsx";
 import Icon from "../ui/Icon.jsx";
+import { useApp } from "../../context/AppContext.jsx";
 
 export default function TrackedGameCard({
+  id,
   title,
   subtitle,
   followers,
   tracking,
+  className,
 }) {
   const [pinned, setPinned] = useState(false);
+  const { selectedRelease, setSelectedRelease } = useApp();
 
   const togglePinned = () => {
     setPinned(!pinned);
@@ -45,7 +49,10 @@ export default function TrackedGameCard({
   };
 
   return (
-    <div className="cursor-pointer bg-transparent w-full rounded-lg p-4 border border-white/5 hover:border-neon/80 transition-all duration-100">
+    <div
+      className={`${className} relative overflow-hidden cursor-pointer bg-transparent w-full rounded-lg p-4 border border-white/5 hover:border-neon/80 transition-all duration-100`}
+      onClick={() => setSelectedRelease(id)}
+    >
       {/* Header with title and pin */}
       <div className="flex justify-between items-start mb-2">
         <div className="flex-1">

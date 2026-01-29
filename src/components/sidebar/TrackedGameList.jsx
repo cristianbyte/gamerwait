@@ -2,41 +2,7 @@ import { useState, useMemo } from "react";
 import { TrackingType } from "../types/TrakingType";
 import TrackedGameCard from "./TrackedGameCard";
 import SearchInput from "../ui/SearchInput";
-
-const GAMES_DATA = [
-  {
-    id: 1,
-    title: "GTA VI",
-    subtitle: "Grand Theft Auto VI",
-    followers: "30304",
-    tracking: {
-      type: TrackingType.RELEASE,
-      startAt: new Date("2026-11-19T00:00:00Z"),
-    },
-  },
-  {
-    id: 2,
-    title: "Fortnite",
-    subtitle: "Chapter 7 - Season 1",
-    followers: "8502",
-    tracking: {
-      type: TrackingType.SEASON,
-      startAt: new Date("2026-01-08T00:00:00Z"),
-      endAt: new Date("2026-02-19T00:00:00Z"),
-    },
-  },
-  {
-    id: 3,
-    title: "Valorant",
-    subtitle: "Act 10 - Ignition",
-    followers: "5502",
-    tracking: {
-      type: TrackingType.RANKED_ACT,
-      startAt: new Date("2026-01-08T00:00:00Z"),
-      endAt: new Date("2026-03-19T08:00:00Z"),
-    },
-  },
-];
+import { useApp } from "../../context/AppContext";
 
 const FILTER_OPTIONS = [
   { value: "all", label: "All" },
@@ -50,9 +16,10 @@ const FILTER_OPTIONS = [
 export default function TrackedGameList() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("all");
+  const { releases, selectedRelease, setSelectedRelease } = useApp();
 
   const filteredGames = useMemo(() => {
-    return GAMES_DATA.filter((game) => {
+    return releases.filter((game) => {
       // Filter by search query
       const matchesSearch =
         game.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -86,10 +53,12 @@ export default function TrackedGameList() {
             filteredGames.map((game) => (
               <TrackedGameCard
                 key={game.id}
+                id={game.id}
                 title={game.title}
                 subtitle={game.subtitle}
                 followers={game.followers}
                 tracking={game.tracking}
+                className={selectedRelease === game.id ? "active" : ""}
               />
             ))
           ) : (

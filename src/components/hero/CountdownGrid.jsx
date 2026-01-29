@@ -26,21 +26,21 @@ export default function CountdownGrid({ targetDate }) {
   }, [targetDate]);
 
   const timeUnits = [
-    { value: timeLeft.days, label: "Days" },
-    { value: timeLeft.hours, label: "Hours" },
-    { value: timeLeft.minutes, label: "Minutes" },
-    { value: timeLeft.seconds, label: "Seconds" },
+    { value: timeLeft.days, label: "DAY" },
+    { value: timeLeft.hours, label: "HRS" },
+    { value: timeLeft.minutes, label: "MIN" },
+    { value: timeLeft.seconds, label: "SEC" },
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 lg:gap-6 mb-12 md:mb-16 px-2 md:px-4 lg:px-10">
+    <div className="flex flex-row align-middle justify-center gap-3 w-full lg:gap-6 md:mb-16 px-2 md:px-4 lg:px-10">
       {timeUnits.map((unit) => (
         <div
           key={unit.label}
-          className={`bg-slate-800/50 border border-white/5 p-4 md:p-4 lg:p-8 text-center `}
+          className={`bg-slate-800/50 border w-max border-white/5 p-4 md:p-6 lg:p-8 text-center `}
         >
           <div
-            className={`text-4xl md:text-5xl lg:text-7xl font-bold tabular-nums mb-2 tracking-tighter`}
+            className={`text-5xl md:text-6xl lg:text-7xl font-bold tabular-nums mb-2 tracking-tighter`}
           >
             {String(unit.value).padStart(2, "0")}
           </div>

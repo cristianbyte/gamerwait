@@ -1,7 +1,7 @@
 import Header from "../hero/Header";
 import CountdownGrid from "../hero/CountdownGrid";
 import StatsCard from "../hero/StatsCard";
-import HeatmapSection from "../hero/HeatmapSection";
+import { useApp } from "../../context/AppContext";
 
 export default function MainContent({
   event = {
@@ -13,12 +13,35 @@ export default function MainContent({
     waiters: 123,
   },
 }) {
+  const { selectedRelease, releases } = useApp();
+
+  // If selectedRelease is set, find the corresponding event data
+  if (selectedRelease) {
+    const selectedEvent = releases.find(
+      (release) => release.id === selectedRelease,
+    );
+    const { startAt, endAt } = selectedEvent.tracking ?? {};
+    const targetDate = endAt ?? startAt;
+    if (selectedEvent) {
+      event = {
+        category: selectedEvent.tracking.type,
+        title: selectedEvent.title,
+        releaseDate: selectedEvent.tracking.startAt.toDateString(),
+        // validate type of startAt
+        targetDate: targetDate,
+        platforms: ["PC", "Xbox", "PlayStation"], // Example platforms
+        waiters: parseInt(selectedEvent.followers),
+        hypeVelocity: Math.floor(Math.random() * 1000), // Example hype velocity
+      };
+    }
+  }
+
   return (
-    <div className="flex flex-col overflow-y-scroll h-screen">
+    <div className="flex flex-col w-full overflow-y-scroll h-screen">
       <Header />
-      <div className="flex-1 flex-col flex justify-center items-center max-h-full mx-auto px-4 md:px-10 py-12">
+      <div className="flex-1 flex-col gap-10 flex justify-center items-center max-h-full px-4 py-12">
         {/* Event Header */}
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded-full mb-6">
             <span className="size-2 bg-purple-500 rounded-full animate-pulse"></span>
             <span className="text-xs font-bold text-purple-400 tracking-[0.2em] uppercase">
@@ -37,7 +60,11 @@ export default function MainContent({
         <CountdownGrid targetDate={event.targetDate} />
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 mb-12 md:mb-16">
+        <div
+          className="flex flex-col items-center justify-center 
+            md:flex-row 
+            gap-2 md:gap-4"
+        >
           <StatsCard
             icon="devices"
             label="Platforms"
