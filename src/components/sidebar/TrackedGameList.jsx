@@ -16,7 +16,7 @@ const FILTER_OPTIONS = [
 export default function TrackedGameList() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("all");
-  const { releases, selectedRelease, setSelectedRelease } = useApp();
+  const { releases, selectedRelease } = useApp();
 
   const filteredGames = useMemo(() => {
     return releases.filter((game) => {
@@ -53,11 +53,7 @@ export default function TrackedGameList() {
             filteredGames.map((game) => (
               <TrackedGameCard
                 key={game.id}
-                id={game.id}
-                title={game.title}
-                subtitle={game.subtitle}
-                followers={game.followers}
-                tracking={game.tracking}
+                game={game}
                 className={selectedRelease === game.id ? "active" : ""}
               />
             ))

@@ -6,60 +6,33 @@ import {
 } from "../countdown/TimeLeft.jsx";
 import Icon from "../ui/Icon.jsx";
 import { useApp } from "../../context/AppContext.jsx";
+import { getTrackingLabel, getTrackingColor } from "../types/TrakingType.jsx";
 
-export default function TrackedGameCard({
-  id,
-  title,
-  subtitle,
-  followers,
-  tracking,
-  className,
-}) {
+export default function TrackedGameCard({ id, game, className }) {
   const [pinned, setPinned] = useState(false);
   const { selectedRelease, setSelectedRelease } = useApp();
 
-  const togglePinned = () => {
+  const togglePinned = (e) => {
+    e.stopPropagation();
     setPinned(!pinned);
   };
 
-  const getTrackingLabel = () => {
-    switch (tracking.type) {
-      case "release":
-        return "Release";
-      case "season":
-        return "Season";
-      case "ranked_act":
-        return "Ranked Act";
-      default:
-        return "Event";
-    }
-  };
-
-  const getTrackingColor = () => {
-    switch (tracking.type) {
-      case "release":
-        return "text-purple-400 border-purple-500/30";
-      case "season":
-        return "text-blue-400 border-blue-500/30";
-      case "ranked_act":
-        return "text-orange-400 border-orange-500/30";
-      default:
-        return "text-gray-400 border-gray-500/30";
-    }
+  const handleCardClick = () => {
+    setSelectedRelease(game);
   };
 
   return (
     <div
       className={`${className} relative overflow-hidden cursor-pointer bg-transparent w-full rounded-lg p-4 border border-white/5 hover:border-neon/80 transition-all duration-100`}
-      onClick={() => setSelectedRelease(id)}
+      onClick={handleCardClick}
     >
       {/* Header with title and pin */}
       <div className="flex justify-between items-start mb-2">
         <div className="flex-1">
           <h3 className="text-xl font-count text-neon font-extrabold leading-tight">
-            {title}
+            {game.title}
           </h3>
-          <p className="text-xs text-slate mt-1">{subtitle}</p>
+          <p className="text-xs text-slate mt-1">{game.subtitle}</p>
         </div>
         <button
           onClick={togglePinned}
@@ -67,9 +40,9 @@ export default function TrackedGameCard({
           aria-label="Pin"
         >
           <span
-            className={`inline-block w-max px-1 py-1 rounded-md text-xs font-semibold border ${getTrackingColor()}`}
+            className={`inline-block w-max px-1 py-1 rounded-md text-xs font-semibold border ${getTrackingColor(game.tracking.type)}`}
           >
-            {getTrackingLabel()}
+            {getTrackingLabel(game.tracking.type)}
           </span>
         </button>
       </div>
@@ -78,19 +51,23 @@ export default function TrackedGameCard({
       <div className="flex items-center gap-2">
         <Icon name="follow" className="w-4 h-4 text-slate" />
         <span className="text-xs font-count text-slate">
-          {parseInt(followers).toLocaleString()}
+          {parseInt(game.followers).toLocaleString()}
         </span>
         <div className="text-xs text-slate ml-auto">
-          {formatReleaseDateOrLive(tracking.startAt)}
+          {formatReleaseDateOrLive(game.tracking.startAt)}
         </div>
       </div>
 
-      {tracking.type !== "release" && (
+      {game.tracking.type !== "release" && (
         <div className="pt-1 mt-2 flex items-center text-xs text-slate border-t border-white/10">
-          <span>{tracking.startAt && formatDate(tracking.startAt)}</span>
+          <span>
+            {game.tracking.startAt && formatDate(game.tracking.startAt)}
+          </span>
 
-          {tracking.endAt && (
-            <span className="ml-auto">{getTimeLeftLabel(tracking.endAt)}</span>
+          {game.tracking.endAt && (
+            <span className="ml-auto">
+              {getTimeLeftLabel(game.tracking.endAt)}
+            </span>
           )}
         </div>
       )}
