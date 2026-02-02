@@ -7,6 +7,7 @@ import {
   getTrackingLabel,
   getOnlyColor,
 } from "../types/TrakingType";
+import { requestNotificationsPermission } from "../../firebase/notifications";
 
 export default function MainContent() {
   const { selectedRelease } = useApp();
@@ -35,9 +36,37 @@ export default function MainContent() {
               {getTrackingLabel(selectedRelease.tracking.type)}
             </span>
           </div>
-          <h1 className="text-3xl md:text-6xl font-bold text-white mb-4 tracking-tight uppercase px-4">
-            {selectedRelease.title}
-          </h1>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <h1 className="text-3xl md:text-6xl font-bold text-white tracking-tight uppercase px-4">
+              {selectedRelease.title}
+            </h1>
+            <button
+              onClick={requestNotificationsPermission}
+              className="group relative p-2 rounded-full bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 hover:border-purple-500/50 transition-all duration-200"
+              aria-label="Activar notificaciones"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-purple-400 group-hover:text-purple-300 transition-colors"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
+                <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+              </svg>
+              {/* Tooltip opcional */}
+              <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-slate-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                Activar notificaciones
+              </span>
+            </button>
+          </div>
           <p className="text-slate-400 text-base md:text-lg">
             Launching globally on {selectedRelease.releaseDate}
           </p>
