@@ -48,9 +48,9 @@ export default function CountdownGrid({ targetDate }) {
       {timeUnits.map((unit) => (
         <div
           key={unit.label}
-          className="bg-slate-800/50 border w-max border-white/5 p-4 md:p-6 lg:p-8 text-center"
+          className="border w-max border-white/5 p-1 md:p-2 lg:p-8 text-center"
         >
-          <div className="text-5xl md:text-6xl lg:text-7xl font-bold tabular-nums mb-2 tracking-tighter">
+          <div className="text-5xl md:text-7xl lg:text-9xl font-bold font-count tabular-nums mb-2 tracking-tighter">
             {String(unit.value).padStart(2, "0")}
           </div>
           <div className="text-[10px] md:text-[10px] lg:text-xs font-bold text-cyan-400 tracking-[0.3em] uppercase opacity-60">

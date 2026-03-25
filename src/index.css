@@ -12,7 +12,7 @@
   --font-sans:
     "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-title: "Space Grotesk", sans-serif;
-  --font-count: "Tektur", sans-serif;
+  --font-count: "Sora", sans-serif;
 }
 
 * {
@@ -36,6 +36,12 @@
   height: 100%;
   width: 4px;
   background: var(--color-neon);
+}
+
+.outline {
+  font-family: 'Sora', sans-serif;
+  color: transparent;
+  -webkit-text-stroke: 1.5px #00ffff;
 }
 
 @layer utilities {
