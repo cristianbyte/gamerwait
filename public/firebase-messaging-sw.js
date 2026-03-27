@@ -22,7 +22,7 @@ messaging.onBackgroundMessage((payload) => {
   const notificationTitle = payload.notification?.title || "GamerWait";
   const notificationOptions = {
     body: payload.notification?.body,
-    icon: "/icon-192.png", // opcional
+    icon: "/favicon.jpg",
   };
 
   self.registration.showNotification(notificationTitle, notificationOptions);
